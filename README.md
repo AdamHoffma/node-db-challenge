@@ -40,11 +40,11 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 - [ ] Explain the difference between `Relational Databases` and `SQL`.
 
-Relational databases are rigid in what can be related to what, where SQL lets you relate any table to numerous other tables
+Relational databases are rigid in what can be related to what, where SQL lets you relate any table to numerous other tables structure vs language
 
 - [ ] Why do tables need a `primary key`?
 
-To uniquely indentify a row
+To uniquely indentify a row serve as the index
 
 - [ ] What is the name given to a table column that references the primary key on another table.
 

@@ -12,7 +12,7 @@ const db = knex(knexConfig)
 
 const router = express.Router()
 
-router.get('/:id', (req, res) => {
+router.get('/projects/:id/tasks', (req, res) => {
     const { id } = req.params    
     Projects.findProjectTasks(id)
     .then(projects => {
@@ -23,7 +23,7 @@ router.get('/:id', (req, res) => {
     })
 })
 
-router.get('/resource/:id', (req, res) => {
+router.get('/projects/:id/resource', (req, res) => {
     const {id} = req.params
     Projects.findProjectResources(id)
     .then(projects => {
@@ -34,7 +34,7 @@ router.get('/resource/:id', (req, res) => {
     })
 })
 
-router.post('/', (req, res) => {
+router.post('/projects', (req, res) => {
     const projectData = req.body
     db('project').insert(projectData)
     .then(ids => {

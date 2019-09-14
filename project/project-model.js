@@ -13,10 +13,10 @@ module.exports = {
 }
 
 function findProjectTasks(id) {
-    return db('project as p')
-    .join('task as t', 'p.id', 't.project_id')
+    return db('task')
+    
     .where({project_id: id})
-    .select('p.project_name', 'p.description', 'p.completed', 't.id', 't.task_description', 't.notes', 't.task_completed',)
+    //.select('p.project_name', 'p.description', 'p.completed', 't.id', 't.task_description', 't.notes', 't.task_completed',)
     .then(projects => {
         return projects
     })
@@ -46,6 +46,9 @@ function insert(resource) {
 
 function getTasks() {
     return db('task')
+    .then(tasks => tasks.map(task  => {
+      return ({...task, completed: Boolean(task.completed)})
+    }))
 }
 
 function getTask(id) {
