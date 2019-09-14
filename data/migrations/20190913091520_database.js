@@ -9,6 +9,7 @@ exports.up = function(knex) {
         .string('description', 255)
     tbl
         .boolean('completed')
+        .defaultTo(false)
     
   })
   .createTable('resource', tbl => {
@@ -18,17 +19,18 @@ exports.up = function(knex) {
         .unique()
         .notNullable()        
     tbl
-        .string('description')    
+        .string('resource_description')    
   })
   .createTable('task', tbl => {
     tbl.increments()
     tbl
-        .string('description')
+        .string('task_description')
         .notNullable()
     tbl
         .string('notes')
     tbl
-        .boolean('completed')
+        .boolean('task_completed')
+        .defaultTo(false)
     // foreign key
     tbl
         .integer('project_id')
